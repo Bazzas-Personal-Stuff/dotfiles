@@ -1,0 +1,50 @@
+set visualbell
+set incsearch
+set clipboard+=unnamedplus
+set idearefactormode=keep
+
+" Extensions
+set NERDTree
+set multiple-cursors
+
+let mapleader=" "
+
+nmap <leader>h <Action>(ShowErrorDescription)
+nmap <leader>r <Action>(RenameElement)
+
+" Navigate between splits
+nmap <S-h> <C-w><C-h>
+nmap <S-j> <C-w><C-j>
+nmap <S-k> <C-w><C-k>
+nmap <S-l> <C-w><C-l>
+
+" Create new splits
+nmap <C-h> <C-w>v
+nmap <C-j> <C-w>s<C-w><C-j>
+nmap <C-k> <C-w>s
+nmap <C-l> <C-w>v<C-w><C-l>
+
+" Stay in indent mode
+vmap < <gv
+vmap > >gv
+
+" Visual paste without yanking
+vmap p "_dP
+
+" Clear search highlighting
+nmap <leader>/ :noh<cr>
+
+" Full word deletion
+imap <C-BS> <C-W>
+imap <C-DEL> <C-o>de
+nmap <C-BS> <C-W>
+nmap <C-DEL> <C-o>de
+
+" File explorer (mostly not working)
+nmap <leader>e :NERDTreeFocus<cr>
+let g:NERDTreeMapActivateNode="l"
+let g:NERDTreeMapCloseDir="h"
+let g:NERDTreeMapQuit="<leader>e"
+
+
+nmap <leader>q <Action>(CloseEditor)
