@@ -5,22 +5,20 @@
 
 ```bash
 cmd /c rmdir /S /Q %APPDATA%\alacritty
-cmd /c rmdir /S /Q %APPDATA%\nushell
 cmd /c rmdir /S /Q %APPDATA%\helix
 
 cmd /c rmdir /S /Q %LOCALAPPDATA%\nvim
 
 cmd /c del %USERPROFILE%\.ideavim
 cmd /c del %USERPROFILE%\.ideavimrc
-
 ```
 
 ### Create symlinks
 
 ```bash
-# AppData/Roaming
+# AppData/Roaming // Nushell must be done in one command because the directory is auto created upon cmd exit
+cmd /c rmdir /S /Q %APPDATA%\nushell & mklink /J %APPDATA%\nushell nushell
 cmd /c mklink /J %APPDATA%\alacritty alacritty
-cmd /c mklink /J %APPDATA%\nushell nushell
 cmd /c mklink /J %APPDATA%\helix helix
 
 # AppData/Local
@@ -32,7 +30,6 @@ cmd /c mklink /H %USERPROFILE%\.ideavimrc idea\.ideavimrc
 
 # configured via commands
 oh-my-posh init nu --config posh/bazzagibbs.omp.json
-
 ```
 
 ### Hotkeys
