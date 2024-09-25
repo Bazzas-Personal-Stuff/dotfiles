@@ -4,14 +4,15 @@
 ### Remove all symlinks or existing files
 
 ```bash
-cmd /c rmdir %APPDATA%\alacritty
-cmd /c rmdir %APPDATA%\nushell
-cmd /c rmdir %APPDATA%\helix
+cmd /c rmdir /S /Q %APPDATA%\alacritty
+cmd /c rmdir /S /Q %APPDATA%\nushell
+cmd /c rmdir /S /Q %APPDATA%\helix
 
-cmd /c rmdir %LOCALAPPDATA%\nvim
+cmd /c rmdir /S /Q %LOCALAPPDATA%\nvim
 
 cmd /c del %USERPROFILE%\.ideavim
 cmd /c del %USERPROFILE%\.ideavimrc
+
 ```
 
 ### Create symlinks
@@ -31,6 +32,7 @@ cmd /c mklink /H %USERPROFILE%\.ideavimrc idea\.ideavimrc
 
 # configured via commands
 oh-my-posh init nu --config posh/bazzagibbs.omp.json
+
 ```
 
 ### Hotkeys
