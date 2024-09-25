@@ -11,6 +11,7 @@ cmd /c rmdir /S /Q %LOCALAPPDATA%\nvim
 
 cmd /c del %USERPROFILE%\.ideavim
 cmd /c del %USERPROFILE%\.ideavimrc
+# Press enter
 ```
 
 ### Create symlinks
@@ -30,6 +31,8 @@ cmd /c mklink /H %USERPROFILE%\.ideavimrc idea\.ideavimrc
 
 # configured via commands
 oh-my-posh init nu --config posh/bazzagibbs.omp.json
+
+# Press enter
 ```
 
 ### Hotkeys
