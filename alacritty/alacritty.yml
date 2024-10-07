@@ -63,7 +63,6 @@ window:
     y: 0
 
 key_bindings:
-  - { key: Return,  mods: Control|Shift,  action: SpawnNewInstance    }
   - { key: Slash,   mods: Control,        chars: "\x1f"               }
   - { key: Tab,     mods: Control,        chars: "\x1b[9;5u"          }
   - { key: Tab,     mods: Control|Shift,  chars: "\x1b[9;6u"          }

@@ -40,6 +40,7 @@ L = "jump_view_right"
 [keys.normal."space"]
 f = "no_op"
 F = "no_op"
+p = "file_picker_in_current_directory"
 e = "file_picker_in_current_directory"
 E = "file_picker"
 k = "no_op"
