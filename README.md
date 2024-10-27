@@ -28,6 +28,7 @@ cmd /c mklink /J %LOCALAPPDATA%\nvim nvim
 # ~
 cmd /c mklink /H %USERPROFILE%\.ideavim idea\.ideavim
 cmd /c mklink /H %USERPROFILE%\.ideavimrc idea\.ideavimrc
+cmd /c mklink /J %USERPROFILE%\.config\wezterm wezterm
 
 # configured via commands
 oh-my-posh init nu --config posh/bazzagibbs.omp.json

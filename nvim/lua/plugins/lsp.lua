@@ -29,7 +29,7 @@ return {
         })
 
         require("mason-lspconfig").setup({
-            ensure_installed = { 'ols', 'clangd' },
+            ensure_installed = { 'ols', 'clangd', 'ruff', 'ruff_lsp' },
             handlers = {
                 lsp_zero.default_setup,
             },
