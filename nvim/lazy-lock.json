@@ -5,6 +5,7 @@
   "auto-session": { "branch": "main", "commit": "3cd531ce4d46fb156268ddedf5f3e6822ef26af7" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
   "codewindow.nvim": { "branch": "master", "commit": "dd7017617962943eb1d152fc58940f11c6775a4a" },
+  "hex.nvim": { "branch": "master", "commit": "fcff75fcf43b5a6c5b471eed65b3a06c412d6020" },
   "lazy.nvim": { "branch": "main", "commit": "1159bdccd8910a0fd0914b24d6c3d186689023d9" },
   "lsp-zero.nvim": { "branch": "v2.x", "commit": "9a686513eaaa13d737d0fec8956a18268ead8b29" },
   "lsp_signature.nvim": { "branch": "master", "commit": "fc38521ea4d9ec8dbd4c2819ba8126cea743943b" },
