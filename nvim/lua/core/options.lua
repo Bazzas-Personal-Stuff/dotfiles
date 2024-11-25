@@ -5,7 +5,14 @@ local opts = {
 	wrap = false,
 	termguicolors = true,
 	number = true,
---	relativenumber = true,
+
+        scrolloff = 7,
+        sidescrolloff = 7,
+
+        shell = "nu",
+        shellcmdflag = "-c",
+        shellquote = "",
+        shellxquote = "",
 }
 
 -- Set options from table
@@ -16,16 +23,6 @@ end
 -- Set other options
 vim.g.nord_italic   = false
 vim.g.nord_bold     = false
-
-vim.o.scrolloff = 7
-vim.o.sidescrolloff = 7
-
-vim.o.shell = "nu"
-vim.o.shellcmdflag = "-c"
-vim.o.shellquote = ""
-vim.o.shellxquote = ""
-
--- vim.g.lsp_zero_ui_float_border = 'double'
 
 
 local colorscheme = require("helpers.colorscheme")

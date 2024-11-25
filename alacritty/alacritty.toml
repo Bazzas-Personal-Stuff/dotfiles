@@ -59,7 +59,7 @@ key = "Back"
 mods = "Control"
 
 [shell]
-program = "C:/Program Files/nu/bin/nu.exe"
+program = "nu.exe"
 
 [window.padding]
 x = 4
