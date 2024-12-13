@@ -768,4 +768,6 @@ $env.config = {
     ]
 }
 
+alias pcal = cd /dev/apps/callisto-sandbox
+
 source ~/.oh-my-posh.nu

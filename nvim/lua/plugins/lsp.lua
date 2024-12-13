@@ -17,6 +17,7 @@ return {
     },
 
     config = function()
+
         local lsp_zero = require("lsp-zero")
         require("mason").setup({
             ui = {
@@ -29,11 +30,13 @@ return {
         })
 
         require("mason-lspconfig").setup({
-            ensure_installed = { 'ols', 'clangd', 'ruff', 'ruff_lsp' },
+            ensure_installed = { 'ols', 'clangd', 'ruff' }, -- slang
             handlers = {
                 lsp_zero.default_setup,
             },
         })
+        
+        require("lspconfig").slangd.setup({})
 
 
         -- Set up diagnostic signs
