@@ -5,6 +5,8 @@ local opts = {
 	wrap = false,
 	termguicolors = true,
 	number = true,
+        ignorecase = true,
+        smartcase = true,
 
         scrolloff = 7,
         sidescrolloff = 7,
