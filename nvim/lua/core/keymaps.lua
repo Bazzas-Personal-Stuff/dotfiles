@@ -47,9 +47,6 @@ map("i", "<C-DEL>", "<C-o>de", "Delete word forwards")
 map("n", "<C-BS>", "<C-W>", "Delete word backwards")
 map("n", "<C-DEL>", "<C-o>de", "Delete word forwards")
 
-map("n", "<leader>q", "<Cmd>bprevious <bar> bdelete #<CR>", "Close buffer")
-map("n", "<leader>Q", "<Cmd>bd<CR>", "Close split and buffer")
-
 map("n", "<leader>/", "<Cmd>noh<CR>", "Clear search highlighting")
 
 map("n", "<leader>t", "<Cmd>terminal<CR>", "Open terminal")
