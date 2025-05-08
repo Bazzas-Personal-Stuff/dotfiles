@@ -17,6 +17,7 @@ local opts = {
         shellxquote = "",
 
         winborder = "rounded",
+        signcolumn = "yes",
 }
 
 -- Set options from table
