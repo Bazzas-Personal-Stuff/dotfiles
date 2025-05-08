@@ -15,6 +15,8 @@ local opts = {
         shellcmdflag = "-c",
         shellquote = "",
         shellxquote = "",
+
+        winborder = "rounded",
 }
 
 -- Set options from table
