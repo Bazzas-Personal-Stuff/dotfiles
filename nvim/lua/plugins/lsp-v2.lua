@@ -50,7 +50,8 @@ return {
                                 'ols',
                                 'clangd',
                                 'ruff',
-                                'slangd',
+                                -- 'slangd',
+
                         },
 
                         handlers = {
@@ -119,5 +120,23 @@ return {
                                 documentation = cmp.config.window.bordered(),
                         },
                 })
+
+                -- HLSL
+                vim.filetype.add({
+                        extension = { 
+                                hlsl = "hlsl",
+                        },
+                })
+
+                if not require("lspconfig.configs").hlsl_tools then
+                        require("lspconfig.configs").hlsl_tools = {
+                                default_config = {
+                                        -- Install from vscode
+                                        cmd = "C:\\Users\\bazzagibbs\\.vscode\\extensions\\timgjones.hlsltools-1.1.303\\bin\\win-x64",
+                                },
+                                root_dir = require("lspconfig").util.root_pattern(".git"),
+                                filetypes = { "hlsl" },
+                        }
+                end
         end,
 }
