@@ -51,3 +51,16 @@ map("n", "<leader>/", "<Cmd>noh<CR>", "Clear search highlighting")
 
 map("n", "<leader>t", "<Cmd>terminal<CR>", "Open terminal")
 map("t", "<Esc><Esc>", "<C-\\><C-n>", "Exit terminal mode")
+
+-- Close all floating windows in case a plugin has leaked one
+map("n", "<leader>wo", function() 
+        local closed_windows = {}
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+                local config = vim.api.nvim_win_get_config(win)
+                if config.relative ~= "" then  -- is_floating_window?
+                        vim.api.nvim_win_close(win, false)  -- do not force
+                        table.insert(closed_windows, win)
+                end
+        end
+        print(string.format('Closed %d windows: %s', #closed_windows, vim.inspect(closed_windows)))
+end, "Close all floating windows")
