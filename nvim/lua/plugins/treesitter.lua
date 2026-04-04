@@ -11,10 +11,8 @@ return {
                 vim.o.shellquote = ""
                 vim.o.shellxquote = ""
 
-                local configs = require("nvim-treesitter.configs")
-                configs.setup({
-                        ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "vim", "vimdoc", "query", "odin", "glsl", "scss", "css", "html", "slang", "hlsl", "json", "json5" },
-
+                local ts = require("nvim-treesitter")
+                ts.setup({
                         highlight = { enable = true },
                         indent = { enable = true, disable = { "python" } },
                         incremental_selection = {
@@ -62,6 +60,16 @@ return {
                                 },
                         },
                 })
+
+                local ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "vim", "vimdoc", "query", "odin", "glsl", "scss", "css", "html", "slang", "hlsl", "json", "json5" }
+                local already_installed = require('nvim-treesitter.config').get_installed()
+                local parsers_to_install = vim.iter(ensure_installed)
+                        :filter(function(parser)
+                                return not vim.tbl_contains(already_installed, parser)
+                                end)
+                        :totable()
+                ts.install(parsers_to_install)
+
 
                 vim.o.shell = "nu"
                 vim.o.shellcmdflag = "-c"
