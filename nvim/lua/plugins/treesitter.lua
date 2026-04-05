@@ -1,79 +1,17 @@
 return {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        dependencies = {
-                "nvim-treesitter/nvim-treesitter-textobjects",
-        },
-        config = function()
-                -- nushell breaks the setup process
-                vim.o.shell = "powershell"
-                vim.o.shellcmdflag = "-c"
-                vim.o.shellquote = ""
-                vim.o.shellxquote = ""
-
-                local ts = require("nvim-treesitter")
+        'nvim-treesitter/nvim-treesitter',
+        lazy = false,
+        build = ':TSUpdate',
+        config = function ()
+                local ts = require('nvim-treesitter')
                 ts.setup({
                         highlight = { enable = true },
-                        indent = { enable = true, disable = { "python" } },
-                        incremental_selection = {
-                                enable = true,
-                                keymaps = {
-                                        init_selection = "<c-space>",
-                                        node_incremental = "<c-space>",
-                                        scope_incremental = "<c-s>",
-                                        node_decremental = "<c-backspace>",
-                                },
-                        },
-                        textobjects = {
-                                select = {
-                                        enable = true,
-                                        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-                                        keymaps = {
-                                                -- You can use the capture groups defined in textobjects.scm
-                                                ["aa"] = "@parameter.outer",
-                                                ["ia"] = "@parameter.inner",
-                                                ["af"] = "@function.outer",
-                                                ["if"] = "@function.inner",
-                                                ["ac"] = "@class.outer",
-                                                ["ic"] = "@class.inner",
-                                        },
-                                },
-                                move = {
-                                        enable = true,
-                                        set_jumps = true, -- whether to set jumps in the jumplist
-                                        goto_next_start = {
-                                                ["]m"] = "@function.outer",
-                                                ["]]"] = "@class.outer",
-                                        },
-                                        goto_next_end = {
-                                                ["]M"] = "@function.outer",
-                                                ["]["] = "@class.outer",
-                                        },
-                                        goto_previous_start = {
-                                                ["[m"] = "@function.outer",
-                                                ["[["] = "@class.outer",
-                                        },
-                                        goto_previous_end = {
-                                                ["[M"] = "@function.outer",
-                                                ["[]"] = "@class.outer",
-                                        },
-                                },
-                        },
                 })
+                ts.install { "c", "cpp", "go", "lua", "python", "rust", "vim", "vimdoc", "query", "odin", "glsl", "scss", "css", "html", "slang", "hlsl", "json", "json5" }
 
-                local ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "vim", "vimdoc", "query", "odin", "glsl", "scss", "css", "html", "slang", "hlsl", "json", "json5" }
-                local already_installed = require('nvim-treesitter.config').get_installed()
-                local parsers_to_install = vim.iter(ensure_installed)
-                        :filter(function(parser)
-                                return not vim.tbl_contains(already_installed, parser)
-                                end)
-                        :totable()
-                ts.install(parsers_to_install)
-
-
-                vim.o.shell = "nu"
-                vim.o.shellcmdflag = "-c"
-                vim.o.shellquote = ""
-                vim.o.shellxquote = ""
-        end,
+                vim.api.nvim_create_autocmd('FileType', {
+                        pattern = { 'odin', 'c', 'cpp', 'lua', 'glsl', 'css', 'html', 'hlsl', 'rust' },
+                        callback = function() vim.treesitter.start() end,
+                })
+        end
 }
